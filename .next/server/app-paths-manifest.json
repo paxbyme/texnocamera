@@ -1,6 +1,0 @@
-{
-  "/(storefront)/mahsulotlar/page": "app/(storefront)/mahsulotlar/page.js",
-  "/(storefront)/buyurtma/page": "app/(storefront)/buyurtma/page.js",
-  "/(storefront)/savatcha/page": "app/(storefront)/savatcha/page.js",
-  "/(storefront)/page": "app/(storefront)/page.js"
-}
