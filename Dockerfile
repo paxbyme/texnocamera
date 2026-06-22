@@ -5,6 +5,12 @@
 FROM node:20-alpine AS builder
 WORKDIR /app
 
+# NEXT_PUBLIC_* values are inlined into the bundle at build time, so they must be
+# present during `npm run build`. Railway passes service variables as build args
+# when declared here. Leave unset to default to http://localhost:3000 (lib/api.ts).
+ARG NEXT_PUBLIC_API_URL
+ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
+
 COPY package.json ./
 RUN npm install
 
