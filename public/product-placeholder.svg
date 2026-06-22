@@ -1,0 +1,33 @@
+<svg width="960" height="720" viewBox="0 0 960 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="960" y2="720" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EEF3FB"/>
+      <stop offset="1" stop-color="#DDE6F5"/>
+    </linearGradient>
+    <linearGradient id="body" x1="300" y1="280" x2="720" y2="470" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1D2A4A"/>
+      <stop offset="1" stop-color="#0A1020"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="720" fill="url(#bg)"/>
+  <!-- mounting arm -->
+  <rect x="252" y="300" width="60" height="34" rx="10" fill="#9BB0D8"/>
+  <rect x="236" y="276" width="40" height="120" rx="14" fill="#6B86BF"/>
+  <!-- camera body -->
+  <rect x="300" y="270" width="392" height="180" rx="56" fill="url(#body)"/>
+  <!-- lens outer -->
+  <circle cx="600" cy="360" r="92" fill="#111A31"/>
+  <circle cx="600" cy="360" r="74" fill="#0A1020" stroke="#2C3C69" stroke-width="6"/>
+  <!-- lens glass -->
+  <circle cx="600" cy="360" r="46" fill="#1D2A4A"/>
+  <circle cx="600" cy="360" r="46" fill="#2563EB" fill-opacity="0.35"/>
+  <!-- lens highlight -->
+  <circle cx="582" cy="342" r="16" fill="#22D3EE" fill-opacity="0.85"/>
+  <!-- IR LEDs -->
+  <circle cx="372" cy="330" r="13" fill="#2563EB" fill-opacity="0.55"/>
+  <circle cx="372" cy="390" r="13" fill="#2563EB" fill-opacity="0.55"/>
+  <circle cx="416" cy="330" r="13" fill="#2563EB" fill-opacity="0.55"/>
+  <circle cx="416" cy="390" r="13" fill="#2563EB" fill-opacity="0.55"/>
+  <!-- status light -->
+  <circle cx="690" cy="300" r="10" fill="#22D3EE"/>
+</svg>
