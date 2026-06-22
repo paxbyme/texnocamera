@@ -1,0 +1,40 @@
+{
+  "pages": {
+    "/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/layout.css",
+      "static/chunks/app/layout.js"
+    ],
+    "/(storefront)/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(storefront)/layout.js"
+    ],
+    "/(storefront)/loading": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(storefront)/loading.js"
+    ],
+    "/(storefront)/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(storefront)/page.js"
+    ],
+    "/(storefront)/savatcha/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(storefront)/savatcha/page.js"
+    ],
+    "/(storefront)/buyurtma/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(storefront)/buyurtma/page.js"
+    ],
+    "/(storefront)/mahsulotlar/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(storefront)/mahsulotlar/page.js"
+    ]
+  }
+}
