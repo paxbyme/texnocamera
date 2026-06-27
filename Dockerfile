@@ -5,9 +5,9 @@
 FROM node:20-alpine AS builder
 WORKDIR /app
 
-# NEXT_PUBLIC_* values are inlined into the bundle at build time, so they must be
-# present during `npm run build`. Railway passes service variables as build args
-# when declared here. Leave unset to default to http://localhost:3000 (lib/api.ts).
+# Optional: set NEXT_PUBLIC_API_URL to call the API directly from the browser.
+# If it is unset in production, the app calls its same-origin /api/v1 proxy; set
+# API_URL at runtime on Railway so that proxy can reach the backend service.
 ARG NEXT_PUBLIC_API_URL
 ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
 

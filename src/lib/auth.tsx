@@ -9,6 +9,7 @@ import {
   useRef,
   useState
 } from 'react';
+import { apiUrl } from './api-base';
 
 export type AuthUser = {
   id: string;
@@ -37,8 +38,6 @@ type AuthContextValue = {
 };
 
 const STORAGE_KEY = 'texnocam.auth.v1';
-const API_BASE =
-  process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:3000';
 
 const AuthContext = createContext<AuthContextValue | null>(null);
 
@@ -109,7 +108,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     persist(null);
     if (current?.refreshToken) {
       try {
-        await fetch(`${API_BASE}/api/v1/auth/logout`, {
+        await fetch(apiUrl('/api/v1/auth/logout'), {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ refreshToken: current.refreshToken })
@@ -124,7 +123,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     const current = sessionRef.current;
     if (!current?.refreshToken) return null;
     try {
-      const res = await fetch(`${API_BASE}/api/v1/auth/refresh`, {
+      const res = await fetch(apiUrl('/api/v1/auth/refresh'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ refreshToken: current.refreshToken })
@@ -148,7 +147,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const authFetch = useCallback(
     async (path: string, init: RequestInit = {}): Promise<Response> => {
-      const url = path.startsWith('http') ? path : `${API_BASE}${path}`;
+      const url = apiUrl(path);
       const token = sessionRef.current?.accessToken;
 
       const withAuth = (bearer?: string): RequestInit => ({

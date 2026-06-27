@@ -1,3 +1,5 @@
+import { apiUrl } from './api-base';
+
 export type CatalogProduct = {
   id: string;
   name: string;
@@ -1298,8 +1300,6 @@ export async function getProductBySlug(slug: string): Promise<CatalogProductDeta
   return hikvisionCatalog.find((p) => p.slug === slug) ?? null;
 }
 
-const API_BASE = () => process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:3000';
-
 export type OtpRequestResult = {
   phone: string;
   expiresIn: number;
@@ -1323,7 +1323,7 @@ async function postJson<T>(
   body: unknown
 ): Promise<ApiResult<T>> {
   try {
-    const res = await fetch(`${API_BASE()}${path}`, {
+    const res = await fetch(apiUrl(path), {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body)

@@ -14,7 +14,7 @@ import { TELEGRAM_BOT, useCheckoutViewModel } from './useCheckoutViewModel';
 export default function CheckoutPage() {
   const vm = useCheckoutViewModel();
 
-  // --- success: handed off to Telegram ---------------------------------------
+  // --- success: sent to Telegram ---------------------------------------------
   if (vm.placed) {
     return (
       <main className="mx-auto max-w-xl px-4 py-16 lg:px-8">
@@ -23,12 +23,11 @@ export default function CheckoutPage() {
             <CheckCircle2 size={34} aria-hidden="true" />
           </span>
           <h1 className="mt-5 font-display text-xl font-bold text-ink">
-            Deyarli tayyor — Telegram’da “Start” bosing
+            Buyurtma Telegram orqali yuborildi
           </h1>
           <p className="mt-2 text-sm text-muted">
-            <b>@{TELEGRAM_BOT}</b> boti ochildi. Pastdagi <b>“Start”</b> (yoki
-            “Boshlash”) tugmasini bossangiz, buyurtmangiz avtomatik yuboriladi va
-            operatorlarimiz siz bilan bog‘lanadi. Hech narsa yozish shart emas.
+            Buyurtmangiz operatorlar chatiga yuborildi. <b>@{TELEGRAM_BOT}</b>{' '}
+            botini ochib, kerak bo‘lsa qo‘shimcha xabar qoldirishingiz mumkin.
           </p>
 
           <button
@@ -163,9 +162,8 @@ export default function CheckoutPage() {
             <Send size={16} className="mt-0.5 shrink-0 text-accent" aria-hidden="true" />
             <span>
               “Telegram’ga yuborish” tugmasini bossangiz, <b>@{TELEGRAM_BOT}</b>{' '}
-              boti ochiladi. U yerda <b>“Start”</b> tugmasini bosing — buyurtmangiz
-              avtomatik yuboriladi va operator siz bilan bog‘lanadi. Hech narsa
-              yozish shart emas.
+              boti ochiladi va buyurtmangiz operatorlar chatiga yuboriladi. Operator
+              siz bilan telefon orqali bog‘lanadi.
             </span>
           </div>
 
@@ -227,7 +225,7 @@ export default function CheckoutPage() {
 
             <p className="mt-3 flex items-center justify-center gap-1.5 text-center text-[11px] leading-relaxed text-muted">
               <Send size={12} aria-hidden="true" />
-              Telegram botda “Start” bossangiz avtomatik yuboriladi
+              Operatorlar telefon orqali bog‘lanadi
             </p>
           </div>
         </aside>

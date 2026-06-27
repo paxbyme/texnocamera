@@ -1,13 +1,18 @@
+import { existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
+const candidateMonorepoRoot = resolve(__dirname, '../..');
+const outputFileTracingRoot = existsSync(resolve(candidateMonorepoRoot, 'apps/web/package.json'))
+  ? candidateMonorepoRoot
+  : __dirname;
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   typedRoutes: true,
-  // Pin the monorepo root so Next doesn't pick the stray ~/package-lock.json
-  outputFileTracingRoot: resolve(__dirname, '../..'),
+  // Use the monorepo root locally, but do not trace above a standalone Vercel checkout.
+  outputFileTracingRoot,
   images: {
     remotePatterns: [
       { protocol: 'https', hostname: '**' },
